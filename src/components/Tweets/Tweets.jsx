@@ -44,12 +44,12 @@ function TableRows({ tweets }) {
 
 function TweetTable({ tweets }) {
   return(
-    <Table>
+    <table>
       <tbody>
         <TableHeader columns={COLUMNS} />
         <TableRows tweets={tweets} />
       </tbody>
-    </Table>
+    </table>
   )
 }
 
