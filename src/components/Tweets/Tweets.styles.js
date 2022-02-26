@@ -6,7 +6,7 @@ const Table = styled.table`
 
 const TableData = styled.td`
   border: 1px solid grey;
-  padding: 10px 20px;
+  padding: 10px 15px;
 `;
 
 export { Table, TableData };

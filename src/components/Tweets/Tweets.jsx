@@ -11,7 +11,7 @@ let tweets = [
   {
     id: 2,
     timestamp: "January 26, 2022",
-    content: "No trash today in celebration of Dan's birthday"
+    content: "No trash pick-up today in celebration of Dan's birthday"
   },
   {
     id: 3,
