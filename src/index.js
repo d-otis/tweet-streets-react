@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Tweets from "./components/Tweets";
+import Emails from "./components/Emails";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="tweets" element={<Tweets />} />
+          <Route path="emails" element={<Emails />} />
         </Route>
       </Routes>
     </BrowserRouter>

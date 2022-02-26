@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import Tweets from '../Tweets/Tweets'
+import Tweets from '../Tweets'
+import Emails from '../Emails'
 
 export default function Navbar() {
   return(
@@ -7,7 +8,7 @@ export default function Navbar() {
       <header data-testid="header">
         <nav>
           <Link to="/tweets" element={<Tweets/>} >Tweets</Link>
-          <Link to="/emails" element={<Tweets/>} >Emails</Link>
+          <Link to="/emails" element={<Emails/>} >Emails</Link>
         </nav>
       </header>
     </>
