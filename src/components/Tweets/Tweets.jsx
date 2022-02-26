@@ -22,9 +22,9 @@ let tweets = [
 
 function TableHeader({ columns }) {
   return(
-  <tr>
-    {columns.map(column => <th key={column.id} >{column}</th>)}
-  </tr>
+    <tr>
+      {columns.map(column => <th key={column.id} >{column}</th>)}
+    </tr>
   )
 }
 
