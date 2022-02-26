@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery } from 'react-query'
 import { TableData } from './Tweets.styles'
 
 const COLUMNS = ["ID", "Timestamp", "Content"]

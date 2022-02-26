@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { QueryClientProvider, QueryClient, Query } from "react-query";
+import { QueryClientProvider, QueryClient } from "react-query";
 import Navbar from "./components/Navbar";
 
 const queryClient = new QueryClient();
