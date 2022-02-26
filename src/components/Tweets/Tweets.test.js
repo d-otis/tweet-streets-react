@@ -1,27 +1,34 @@
-import { render, screen } from '@testing-library/react'
-import Tweets from './Tweets'
+import { render, screen } from "@testing-library/react";
+import Tweets from "./Tweets";
 
-describe('Tweets component', () => {
-  test('renders header', () => {
-    render(<Tweets />)
+describe("Tweets component", () => {
+  test("renders header", () => {
+    render(<Tweets />);
 
-    const header = screen.getByText(/saved trash tweets/i)
-    expect(header).toBeInTheDocument()
-  })
+    const header = screen.getByText(/saved trash tweets/i);
+    expect(header).toBeInTheDocument();
+  });
 
-  describe('renders list of tweets', () => {
-    test('renders tweet content', () => {
-      render(<Tweets />)
+  test("renders an HTML table", () => {
+    render(<Tweets />);
 
-      const content = screen.getByText(/no trash pick-up today/i)
-      expect(content).toBeInTheDocument()
-    })
+    const table = screen.getByRole("table");
+    expect(table).toBeInTheDocument();
+  });
 
-    test('renders timestamp', () => {
-      render(<Tweets />)
+  describe("renders list of tweets", () => {
+    test("renders tweet content", () => {
+      render(<Tweets />);
 
-      const timestamp = screen.getByText(/february 26, 2002/i)
-      expect(timestamp).toBeInTheDocument()
-    })
-  })
-})
+      const content = screen.getByText(/no trash pick-up today/i);
+      expect(content).toBeInTheDocument();
+    });
+
+    test("renders timestamp", () => {
+      render(<Tweets />);
+
+      const timestamp = screen.getByText(/february 26, 2022/i);
+      expect(timestamp).toBeInTheDocument();
+    });
+  });
+});
