@@ -13,8 +13,10 @@
 
 - create routes/views with hard-coded data
   - /tweets
+    - config route
     - [{ id, timestamp, content }]
   - /emails
+    - config route
     - [{ email }]
 - set up MSW to retrieve mock data for views
 - connect to Google Sheets database
