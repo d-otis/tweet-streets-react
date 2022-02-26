@@ -11,11 +11,11 @@
 
 # Dev Plan
 
-- create routes/views with hard-coded data
-  - /tweets
-    - config route
-    - [{ id, timestamp, content }]
-    - setup styled-components for table styling
+- [ ] create routes/views with hard-coded data
+  - [ ] /tweets
+    - [ ] config route
+    - [ ] [{ id, timestamp, content }]
+    - [ ] setup styled-components for table styling
   - /emails
     - config route
     - [{ email }]
