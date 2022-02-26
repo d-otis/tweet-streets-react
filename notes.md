@@ -11,6 +11,11 @@
 
 # Dev Plan
 
+- [ ] Navbar
+  - [ ] Home
+  - [ ] Tweets
+  - [ ] Emails
+- [ ] update Readme to make sense
 - [ ] create routes/views with hard-coded data
   - [ ] `/tweets`
     - [x] config route
