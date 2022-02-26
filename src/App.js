@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom";
+import { QueryClientProvider, QueryClient, Query } from "react-query";
 import Navbar from "./components/Navbar";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <Navbar />
+        <Outlet />
+      </QueryClientProvider>
     </>
   );
 }
