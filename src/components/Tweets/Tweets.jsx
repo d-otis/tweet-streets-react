@@ -1,24 +1,7 @@
-import { Table, TableData } from './Tweets.styles'
+import { useQuery, useQueryClient } from 'react-query'
+import { TableData } from './Tweets.styles'
 
 const COLUMNS = ["ID", "Timestamp", "Content"]
-
-let tweets = [
-  {
-    id: 1,
-    timestamp: "February 26, 2022",
-    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-  },
-  {
-    id: 2,
-    timestamp: "January 26, 2022",
-    content: "No trash pick-up today in celebration of Dan's birthday"
-  },
-  {
-    id: 3,
-    timestamp: "July 19, 2022",
-    content: "No trash today in celebration of Danny's birthday"
-  },
-]
 
 function TableHeader({ columns }) {
   return(
@@ -54,10 +37,28 @@ function TweetTable({ tweets }) {
 }
 
 export default function Tweets() {
-  return(
-    <>
-      <h1>Saved Trash Tweets</h1>
-      <TweetTable tweets={tweets} />
-    </>
-  )
+  const tweetQuery = useQuery('tweets', async () => {
+    const response = await window.fetch("/api/tweets")
+    if (!response.ok) {
+      throw new Error(await response.text())
+    }
+    const data = await response.json()
+    return data.data
+  })
+
+  if (tweetQuery.isLoading) {
+    return <h1>Loading</h1>
+  }
+
+  if (tweetQuery.data) {
+    const tweets = tweetQuery.data
+    return(
+      <>
+        <h1>Saved Trash Tweets</h1>
+        <TweetTable tweets={tweets} />
+      </>
+    )
+  }
+
+  return null
 }
