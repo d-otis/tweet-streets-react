@@ -9,6 +9,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Tweets from "./components/Tweets";
 import Emails from "./components/Emails";
 
+if (process.env.NODE_ENV === "development") {
+  const { worker } = require("./mocks/browser");
+  worker.start();
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
