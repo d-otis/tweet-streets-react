@@ -1,4 +1,3 @@
-import React from 'react'
 import { Table, TableData } from './Tweets.styles'
 
 const COLUMNS = ["ID", "Timestamp", "Content"]
