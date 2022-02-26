@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table, TableData } from './Tweets.styles'
 
 const COLUMNS = ["ID", "Timestamp", "Content"]
 
@@ -23,7 +24,7 @@ let tweets = [
 function TableHeader({ columns }) {
   return(
   <tr>
-    {columns.map(column => <th>{column}</th>)}
+    {columns.map(column => <th key={column.id} >{column}</th>)}
   </tr>
   )
 }
@@ -32,10 +33,10 @@ function TableRows({ tweets }) {
   return(
     tweets.map(tweet => {
       return(
-        <tr>
-          <td>{tweet.id}</td>
-          <td>{tweet.timestamp}</td>
-          <td>{tweet.content}</td>
+        <tr key={tweet.id}>
+          <TableData>{tweet.id}</TableData>
+          <TableData>{tweet.timestamp}</TableData>
+          <TableData>{tweet.content}</TableData>
         </tr>
       )
     })
@@ -44,10 +45,12 @@ function TableRows({ tweets }) {
 
 function TweetTable({ tweets }) {
   return(
-    <table>
-      <TableHeader columns={COLUMNS} />
-      <TableRows tweets={tweets} />
-    </table>
+    <Table>
+      <tbody>
+        <TableHeader columns={COLUMNS} />
+        <TableRows tweets={tweets} />
+      </tbody>
+    </Table>
   )
 }
 
