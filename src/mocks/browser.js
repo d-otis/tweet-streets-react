@@ -1,7 +1,7 @@
 import { setupWorker, rest } from "msw";
 import { handlers } from "./handlers";
 
-const LATENCY_SIM = 2000;
+const LATENCY_SIM = 500;
 
 function sleep(delay) {
   return new Promise((resolve) => window.setTimeout(resolve, delay));
