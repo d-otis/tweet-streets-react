@@ -15,6 +15,7 @@
   - /tweets
     - config route
     - [{ id, timestamp, content }]
+    - setup styled-components for table styling
   - /emails
     - config route
     - [{ email }]
