@@ -38,4 +38,11 @@ describe("Navbar", () => {
     const emailsLink = screen.getByText(/emails/i);
     expect(emailsLink).toBeInTheDocument();
   });
+
+  test("renders Home Link", () => {
+    setup();
+
+    const homeLink = screen.getByText(/home/i);
+    expect(homeLink).toBeInTheDocument();
+  });
 });
