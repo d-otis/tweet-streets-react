@@ -7,7 +7,6 @@ export default function Navbar() {
     <>
       <header data-testid="header">
         <nav>
-          <Link to="/">Home</Link>
           <Link to="/tweets" element={<Tweets/>} >Tweets</Link>
           <Link to="/emails" element={<Emails/>} >Emails</Link>
         </nav>
