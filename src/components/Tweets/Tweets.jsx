@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+import PropTypes from 'prop-types'
 import { TableData } from './Tweets.styles'
 
 const COLUMNS = ["ID", "Timestamp", "Content"]
@@ -61,4 +62,7 @@ export default function Tweets() {
   }
 
   return null
+}
+TweetTable.propTypes = {
+  tweets: PropTypes.arrayOf(PropTypes.object)
 }
