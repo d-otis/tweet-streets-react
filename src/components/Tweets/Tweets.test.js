@@ -1,16 +1,27 @@
 import { render, screen } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Tweets from "./Tweets";
 
-describe("Tweets component", () => {
-  test("renders header", () => {
-    render(<Tweets />);
+const queryClient = new QueryClient();
 
-    const header = screen.getByText(/saved trash tweets/i);
+describe("Tweets component", () => {
+  const setup = () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Tweets />
+      </QueryClientProvider>
+    );
+  };
+
+  test("renders header", async () => {
+    setup();
+
+    const header = await screen.findByText(/saved trash tweets/i);
     expect(header).toBeInTheDocument();
   });
 
   test("renders an HTML table", () => {
-    render(<Tweets />);
+    setup();
 
     const table = screen.getByRole("table");
     expect(table).toBeInTheDocument();
@@ -18,14 +29,14 @@ describe("Tweets component", () => {
 
   describe("renders list of tweets", () => {
     test("renders tweet content", () => {
-      render(<Tweets />);
+      setup();
 
       const content = screen.getByText(/no trash pick-up today/i);
       expect(content).toBeInTheDocument();
     });
 
     test("renders timestamp", () => {
-      render(<Tweets />);
+      setup();
 
       const timestamp = screen.getByText(/february 26, 2022/i);
       expect(timestamp).toBeInTheDocument();
