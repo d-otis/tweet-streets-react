@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+import { fetchTweets } from '../../queries/tweetQueries'
 import PropTypes from 'prop-types'
 import { TableData } from './Tweets.styles'
 
@@ -38,14 +39,8 @@ function TweetTable({ tweets }) {
 }
 
 export default function Tweets() {
-  const tweetQuery = useQuery('tweets', async () => {
-    const response = await window.fetch("/api/tweets")
-    if (!response.ok) {
-      throw new Error(await response.text())
-    }
-    const data = await response.json()
-    return data.data
-  })
+  // TODO pull this out into a separate file
+  const tweetQuery = useQuery('tweets', fetchTweets)
 
   if (tweetQuery.isLoading) {
     return <h1>Loading</h1>
