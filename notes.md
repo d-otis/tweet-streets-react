@@ -21,8 +21,10 @@
     - [x] config route
     - [ ] `[ { id, timestamp, content } ]`
     - [ ] setup styled-components for table styling
+    - [ ] make sure these tests have access to the URL in test env
   - [ ] `/emails`
     - [ ] config route
     - [ ] `[ { email } ]`
+    - [ ] add `POST` functionality for adding email addresses
 - [ ] set up MSW to retrieve mock data for views
 - [ ] connect to Google Sheets database
