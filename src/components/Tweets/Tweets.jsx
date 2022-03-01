@@ -39,11 +39,10 @@ function TweetTable({ tweets }) {
 }
 
 export default function Tweets() {
-  // TODO pull this out into a separate file
   const tweetQuery = useQuery('tweets', fetchTweets)
 
   if (tweetQuery.isLoading) {
-    return <h1>Loading</h1>
+    return <h1>Tweets Loading</h1>
   }
 
   if (tweetQuery.data) {
