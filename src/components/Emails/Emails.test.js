@@ -5,7 +5,7 @@ describe("Emails", () => {
   test("renders an h1", () => {
     render(<Emails />);
 
-    const h1 = screen.getByText(/emails index/i);
+    const h1 = screen.getByText(/email subscribers/i);
     expect(h1).toBeInTheDocument();
   });
 });
