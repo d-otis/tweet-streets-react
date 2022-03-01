@@ -1,10 +1,5 @@
 import { useState } from "react"
-
-const emails = [
-  "dan@example.com",
-  "dude@example.com",
-  "lily@example.com"
-]
+import { useQuery } from "react-query"
 
 function EmailList({emails}) {
   return(
@@ -43,11 +38,30 @@ function AddEmailForm() {
 }
 
 export default function Emails() {
-  return(
-    <>
-      <h1>Email Subscribers</h1>
-      <EmailList emails={emails} />
-      <AddEmailForm />
-    </>
-  )
+  const emailQuery = useQuery("emails", async () => {
+    const response = await window.fetch("/api/emails")
+    if (!response.ok) {
+      throw new Error(await response.text())    
+    }
+    const data = await response.json()
+    return data.data
+  })
+
+  if (emailQuery.isLoading) {
+    return <h1>Emails Loading</h1>
+  }
+
+  if (emailQuery.data) {
+    const emails = emailQuery.data
+
+    return(
+      <>
+        <h1>Email Subscribers</h1>
+        <EmailList emails={emails} />
+        <AddEmailForm />
+      </>
+    )
+  }
+
+  return null
 }

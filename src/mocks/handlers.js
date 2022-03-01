@@ -19,6 +19,8 @@ const tweets = [
   },
 ];
 
+const emails = ["dan@example.com", "dude@example.com", "lilybear@example.com"];
+
 const tweetsHandlers = [
   rest.get("/api/tweets", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ data: tweets }));
@@ -27,7 +29,7 @@ const tweetsHandlers = [
 
 const emailHandlers = [
   rest.get("/api/emails", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ msg: "the emails" }));
+    return res(ctx.status(200), ctx.json({ data: emails }));
   }),
 ];
 
