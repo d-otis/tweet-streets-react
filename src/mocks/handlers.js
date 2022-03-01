@@ -25,4 +25,10 @@ const tweetsHandlers = [
   }),
 ];
 
-export const handlers = [...tweetsHandlers];
+const emailHandlers = [
+  rest.get("/api/emails", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ msg: "the emails" }));
+  }),
+];
+
+export const handlers = [...tweetsHandlers, ...emailHandlers];
