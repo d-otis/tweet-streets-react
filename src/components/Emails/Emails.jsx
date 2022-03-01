@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useQuery } from "react-query"
+import { fetchEmails } from "../../queries/emailQueries"
 
 function EmailList({emails}) {
   return(
@@ -38,14 +39,7 @@ function AddEmailForm() {
 }
 
 export default function Emails() {
-  const emailQuery = useQuery("emails", async () => {
-    const response = await window.fetch("/api/emails")
-    if (!response.ok) {
-      throw new Error(await response.text())    
-    }
-    const data = await response.json()
-    return data.data
-  })
+  const emailQuery = useQuery("emails", fetchEmails)
 
   if (emailQuery.isLoading) {
     return <h1>Emails Loading</h1>
