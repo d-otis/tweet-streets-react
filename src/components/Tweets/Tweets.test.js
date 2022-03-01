@@ -20,25 +20,25 @@ describe("Tweets component", () => {
     expect(header).toBeInTheDocument();
   });
 
-  test("renders an HTML table", () => {
+  test("renders an HTML table", async () => {
     setup();
 
-    const table = screen.getByRole("table");
+    const table = await screen.findByRole("table");
     expect(table).toBeInTheDocument();
   });
 
   describe("renders list of tweets", () => {
-    test("renders tweet content", () => {
+    test("renders tweet content", async () => {
       setup();
 
-      const content = screen.getByText(/no trash pick-up today/i);
+      const content = await screen.findByText(/no trash pick-up today/i);
       expect(content).toBeInTheDocument();
     });
 
-    test("renders timestamp", () => {
+    test("renders timestamp", async () => {
       setup();
 
-      const timestamp = screen.getByText(/february 26, 2022/i);
+      const timestamp = await screen.findByText(/february 26, 2022/i);
       expect(timestamp).toBeInTheDocument();
     });
   });
